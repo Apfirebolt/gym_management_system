@@ -15,11 +15,16 @@
                     </h2>
                     <h5 class="center">Subscriptions</h5>
                     <form action="{% url 'core:list-subscriptions' %}" class="col s12" method="GET">
-                        <h5>Search Users</h5>
-                        <div class="input-field">
-                          <input class="white grey-text autocomplete" placeholder="Aruba, Cancun, etc..." type="text" name="search-input" id="autocomplete-input">
-                        </div>
-                        <input class="btn teal" value="Search" />
+                        <div class="row">
+                            <h5 class="col s2">Search Users</h5>
+                            <div class="input-field col s8">
+                                <input class="white grey-text autocomplete" placeholder="Aruba, Cancun, etc..." type="text" name="search-input" id="autocomplete-input">
+                            </div>
+                            <div class="input-field col s2">
+                                <input class="btn teal" value="Search" type="submit" />
+                                <input class="btn red" value="Clear Search" type="button" id="clear-search" />
+                            </div>
+                          </div>
                     </form>
                     <table>
                         <thead>

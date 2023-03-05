@@ -25,7 +25,11 @@
 
 <script>
     $(document).ready(function () {
-  
+
+      $('#clear-search').click(() => {
+        console.log('Clear search clickde..')
+        window.location = window.location.pathname;
+      })
       // Init Slider
       $('.slider').slider({
         indicators: false,

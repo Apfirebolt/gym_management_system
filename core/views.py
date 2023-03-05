@@ -47,7 +47,11 @@ class ListSubscriptions(ListView):
     context_object_name = 'subscriptions'
 
     def get_queryset(self):
-        qs = UserPlan.objects.all().order_by('-subscription_date')
+        if self.request.GET.get('search-input'):
+            userEmail = self.request.GET.get('search-input')
+            qs = UserPlan.objects.filter(user_id__email__icontains=userEmail).order_by('-subscription_date')
+        else:
+            qs = UserPlan.objects.all().order_by('-subscription_date')
         return qs
 
 
