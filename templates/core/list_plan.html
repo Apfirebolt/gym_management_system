@@ -1,0 +1,23 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div>
+       
+        <!-- Overlapping cards -->
+        <section>
+            <h2>Plans</h2>
+            <div>
+                {% for each_plan in plans %}
+                    <p>
+                        {{ each_plan.name }}
+                    </p>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}
