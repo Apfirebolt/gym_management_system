@@ -4,35 +4,33 @@
 {% block content %}
 {%include 'partials/header.html' %}
 
-<div class="container">
+<div class="blue lighten-5">
     <div class="section">
         <!--   Icon Section   -->
         <div class="row">
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text">
-                        <i class="material-icons">flash_on</i>
-                    </h2>
-                    <h5 class="center">Speeds up development</h5>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">User Experience Focused</h5>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
+            <div class="col s12">
                 <div class="icon-block">
                     <h2 class="center brown-text">
                         <i class="material-icons">settings</i>
                     </h2>
-                    <h5 class="center">Easy to work with</h5>
+                    <h5 class="center">Plans</h5>
 
                     {% for each_plan in plans %}
-                    <p>{{ each_plan.name }}</p>
+                    <div class="col s12 m6">
+                        <div class="card">
+                          <div class="card-image">
+                            <img src="{{ each_plan.image.url }}">
+                            <span class="card-title">{{ each_plan.name }}</span>
+                          </div>
+                          <div class="card-content">
+                            <p>{{ each_plan.description }}</p>
+                          </div>
+                          <div class="card-action">
+                            <p>FEES - {{ each_plan.fees }}</p>
+                            <p>Billed {{ each_plan.billing_duration }}</p>
+                          </div>
+                        </div>
+                      </div>
                     {% endfor %}
                 </div>
             </div>
