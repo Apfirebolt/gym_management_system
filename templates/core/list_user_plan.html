@@ -1,6 +1,6 @@
 {% extends 'partials/base.html' %}
 {% load static %}
-{% block title %} GymManagement System - Plans {% endblock %}
+{% block title %} GymManagement System - User Plans {% endblock %}
 {% block content %}
 {%include 'partials/header.html' %}
 
@@ -13,14 +13,14 @@
                     <h2 class="center brown-text">
                         <i class="material-icons">flash_on</i>
                     </h2>
-                    <h5 class="center">Speeds up development</h5>
+                    <h5 class="center">User Plan</h5>
                 </div>
             </div>
 
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">User Experience Focused</h5>
+                    <h5 class="center">Associate User With a Plan</h5>
                 </div>
             </div>
 
@@ -30,10 +30,6 @@
                         <i class="material-icons">settings</i>
                     </h2>
                     <h5 class="center">Easy to work with</h5>
-
-                    {% for each_plan in plans %}
-                    <p>{{ each_plan.name }}</p>
-                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 {% extends 'partials/base.html' %}
 {% load static %}
-{% block title %} GymManagement System - Plans {% endblock %}
+{% block title %} GymManagement System - Equipments {% endblock %}
 {% block content %}
 {%include 'partials/header.html' %}
 
@@ -13,7 +13,7 @@
                     <h2 class="center brown-text">
                         <i class="material-icons">flash_on</i>
                     </h2>
-                    <h5 class="center">Speeds up development</h5>
+                    <h5 class="center">Equipments</h5>
                 </div>
             </div>
 
@@ -31,8 +31,8 @@
                     </h2>
                     <h5 class="center">Easy to work with</h5>
 
-                    {% for each_plan in plans %}
-                    <p>{{ each_plan.name }}</p>
+                    {% for each_equipment in equipments %}
+                    <p>{{ each_equipment.name }}</p>
                     {% endfor %}
                 </div>
             </div>
