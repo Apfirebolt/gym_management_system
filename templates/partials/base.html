@@ -5,15 +5,54 @@
     <meta charset="UTF-8">
     <title>{% block title %}Gym Management System{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Nunito&family=PT+Sans&family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
 </head>
 <body>
 {% block content %}
 
 {% endblock %}
-<script src="{% static 'js/materialize.js' %}"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+  
+      // Init Slider
+      $('.slider').slider({
+        indicators: false,
+        height: 500,
+        transition: 500,
+        interval: 6000
+      });
+  
+      // Autocomplete
+      $('.autocomplete').autocomplete({
+        data: {
+          "Aruba": null,
+          "Cancun Mexico": null,
+          "Hawaii": null,
+          "Florida": null,
+          "California": null,
+          "Jamaica": null,
+          "Europe": null,
+          "The Bahamas": null,
+        }
+      });
+  
+      // Init Scrollspy
+      $('.scrollspy').scrollSpy();
+  
+    });
+  </script>
 </body>
+
 </html>
