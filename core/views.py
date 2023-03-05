@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import CustomUser, Equipment, UserPlan, Plan
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -47,7 +47,16 @@ class ListSubscriptions(ListView):
     context_object_name = 'subscriptions'
 
     def get_queryset(self):
-        qs = UserPlan.objects.all()
+        qs = UserPlan.objects.all().order_by('-subscription_date')
         return qs
+
+
+class SubscriptionDetail(DetailView):
+    """A View to get detail of a subscription"""
+
+    model = UserPlan
+    template_name = 'core/user_plan_detail.html'
+    context_object_name = 'subscription'
+
 
 

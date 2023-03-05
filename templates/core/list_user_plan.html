@@ -14,7 +14,13 @@
                         <i class="material-icons">bolt</i>
                     </h2>
                     <h5 class="center">Subscriptions</h5>
-
+                    <form action="{% url 'core:list-subscriptions' %}" class="col s12" method="GET">
+                        <h5>Search Users</h5>
+                        <div class="input-field">
+                          <input class="white grey-text autocomplete" placeholder="Aruba, Cancun, etc..." type="text" name="search-input" id="autocomplete-input">
+                        </div>
+                        <input class="btn teal" value="Search" />
+                    </form>
                     <table>
                         <thead>
                           <tr>
@@ -23,6 +29,7 @@
                               <th>Subscription Date</th>
                               <th>Is Paid</th>
                               <th>Fees</th>
+                              <th>Details</th>
                           </tr>
                         </thead>
                 
@@ -34,6 +41,9 @@
                                 <td>{{ each_subscription.subscription_date }}</td>
                                 <td>{{ each_subscription.is_paid }}</td>
                                 <td>RS {{ each_subscription.plan_id.fees }}</td>
+                                <td>
+                                    <a href="{% url 'core:subscription-detail' each_subscription.id %}" class="btn teal">Detail</a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>

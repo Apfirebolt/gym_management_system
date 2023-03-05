@@ -1,0 +1,48 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %} GymManagement System - Subscription Detail {% endblock %}
+{% block content %}
+{%include 'partials/header.html' %}
+
+<div class="blue lighten-5">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s6 center-align">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ subscription.user_id.profile_image.url }}">
+                        <span class="card-title">{{ subscription.user_id.email }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 center-align">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ subscription.plan_id.image.url }}">
+                        <span class="card-title">{{ subscription.plan_id.name }}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            {{ subscription.plan_id.description }}
+                        </p>
+                        <p>
+                            Enrolled on - {{ subscription.subscription_date }}
+                        </p>
+                        <p>
+                            Program Fees - {{ subscription.plan_id.fees }}
+                        </p>
+                        <p>
+                            Fees Paid - {{ subscription.is_paid }}
+                        </p>
+                        <p>
+                            Plan Active - {{ subscription.is_active }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'partials/footer.html' %} {% endblock %}
