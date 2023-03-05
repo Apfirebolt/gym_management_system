@@ -1,35 +1,43 @@
 {% extends 'partials/base.html' %}
 {% load static %}
-{% block title %} GymManagement System - User Plans {% endblock %}
+{% block title %} GymManagement System - Equipments {% endblock %}
 {% block content %}
 {%include 'partials/header.html' %}
 
-<div class="container">
+<div class="blue lighten-5">
     <div class="section">
         <!--   Icon Section   -->
         <div class="row">
-            <div class="col s12 m4">
+            <div class="col s12">
                 <div class="icon-block">
                     <h2 class="center brown-text">
-                        <i class="material-icons">flash_on</i>
+                        <i class="material-icons">bolt</i>
                     </h2>
-                    <h5 class="center">User Plan</h5>
-                </div>
-            </div>
+                    <h5 class="center">Subscriptions</h5>
 
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">Associate User With a Plan</h5>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text">
-                        <i class="material-icons">settings</i>
-                    </h2>
-                    <h5 class="center">Easy to work with</h5>
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>Username</th>
+                              <th>Plan</th>
+                              <th>Subscription Date</th>
+                              <th>Is Paid</th>
+                              <th>Fees</th>
+                          </tr>
+                        </thead>
+                
+                        <tbody>
+                            {% for each_subscription in subscriptions %}
+                            <tr>
+                                <td>{{ each_subscription.user_id.email }}</td>
+                                <td>{{ each_subscription.plan_id.name }}</td>
+                                <td>{{ each_subscription.subscription_date }}</td>
+                                <td>{{ each_subscription.is_paid }}</td>
+                                <td>RS {{ each_subscription.plan_id.fees }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>

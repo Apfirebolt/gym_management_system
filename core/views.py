@@ -11,7 +11,7 @@ class ListCustomUsers(ListView):
     context_object_name = 'users'
 
     def get_queryset(self):
-        qs = CustomUser.objects.all()
+        qs = CustomUser.objects.all().exclude(is_superuser=True)
         return qs
 
 
