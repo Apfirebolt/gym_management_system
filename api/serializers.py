@@ -63,6 +63,8 @@ class PlanSerializer(serializers.ModelSerializer):
 
 class UserPlanSerializer(serializers.ModelSerializer):
 
+    user_id = ListCustomUserSerializer(read_only=True)
+
     class Meta:
         model = UserPlan
         fields = '__all__'

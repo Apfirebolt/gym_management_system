@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
-     'rest_framework.authtoken',
 
     'core',
     'api',
@@ -155,6 +154,12 @@ JAZZMIN_SETTINGS = {
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
     "user_avatar": None,
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 STATIC_URL = '/static/'
