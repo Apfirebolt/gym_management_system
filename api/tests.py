@@ -1,25 +1,23 @@
-from core.models import Equipment, Plan
+from core.models import Equipment, Plan, CustomUser
 from .serializers import EquipmentSerializer, PlanSerializer
 from rest_framework import status
 from django.test import TestCase, Client
+from rest_framework.test import APIClient
 from django.urls import reverse
-
-from django.core.files.uploadedfile import SimpleUploadedFile
-
-small_gif = (
-    b'\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x00\x00\x00\x21\xf9\x04'
-    b'\x01\x0a\x00\x01\x00\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02'
-    b'\x02\x4c\x01\x00\x3b'
-)
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
-client = Client()
+client = APIClient()
 
 
 class EquipmentTest(TestCase):
     """ Test module for Equipment model """
 
     def setUp(self):
+        user = CustomUser.objects.create(username='john', email='js@js.com', password='js.sj')
+        refresh = RefreshToken.for_user(user)
+        client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh.access_token}')
+
         Equipment.objects.create(
             name="New Equipment",
             per_unit_price=10.0,
