@@ -29,7 +29,11 @@ This project uses Materialize CSS for UI components.
 
 ## API
 
-Currently, project exists as a multi-page application with no exposure of data for any other applications to use through API. But, API development might be on the cards later eventually.
+API also exists for this multi-page application now using DRF and DRF-JWT Tokens.
+
+## Features 
+
+Notification Module which sends notification if the subscription due date of the user is within previous 7 days. This can be achieved through implementation of a back-ground task using Django and Celery.
 
 ## Authors
 
