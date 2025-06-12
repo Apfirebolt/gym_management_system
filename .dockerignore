@@ -1,0 +1,37 @@
+# Git
+.git
+.gitignore
+
+# Python specific
+__pycache__/
+*.pyc
+*.sqlite3 # Development database, not needed in image (you're using Postgres)
+.venv/ # Virtual environment (if you use this naming)
+venv/  # Virtual environment (if you use this naming)
+*.env # Environment variables (these should be passed via Docker Compose or secrets)
+.env.local
+.env.development
+.env.production
+
+# Collected static files (these are generated *inside* the container by collectstatic)
+staticfiles/
+
+# User-uploaded media files (these should typically be mounted as a volume, not baked into the image)
+media/
+
+# IDE files
+.idea/
+.vscode/
+
+# Operating System temporary files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker specific (don't copy the Docker build context itself)
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
